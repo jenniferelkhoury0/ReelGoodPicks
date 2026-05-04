@@ -1,3 +1,16 @@
 <?php
-define("TMDB_TOKEN", "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjExODBkY2RmMzI5MTIxZjM3MWE3ZjhiOTM0MTI0ZiIsIm5iZiI6MTc3Nzg5MDM2OC4wMDEsInN1YiI6IjY5Zjg3NDNmMGZhM2Q0MjViOTIzZWEyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OvMYbfmLxvJf_HHa8qfPe4QQd-1Kf9wFDdxtvN_jGSs");
+// TMDB API
+define("TMDB_TOKEN", "YOUR_TMDB_TOKEN_HERE");
+
+// DATABASE CONNECTION
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "movie_db";
+
+$conn = mysqli_connect($host, $user, $password, $database);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 ?>
