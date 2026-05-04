@@ -284,4 +284,30 @@ async function loadMovies(type = "trending", query = "") {
 
   displayMovies(data.results);
 }
+function displayMovies(movies) {
+  const container = document.getElementById("movies-container");
+  container.innerHTML = "";
 
+  movies.forEach(movie => {
+    const poster = movie.poster_path
+      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+      : "images/no-poster.png";
+
+    container.innerHTML += `
+      <div class="movie-card">
+        <img src="${poster}" alt="${movie.title}">
+        <h3>${movie.title}</h3>
+        <p>Rating: ${movie.vote_average}</p>
+        <p>${movie.overview.substring(0, 120)}...</p>
+
+        <button onclick="addToWatchlist(
+          ${movie.id},
+          '${movie.title.replace(/'/g, "\\'")}',
+          '${poster}'
+        )">
+          Add to Watchlist
+        </button>
+      </div>
+    `;
+  });
+}
