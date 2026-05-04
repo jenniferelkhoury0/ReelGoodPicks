@@ -272,4 +272,16 @@ $(document).ready(function () {
     displayQuestion(); // Start displaying the questions
   }
 });
+async function loadMovies(type = "trending", query = "") {
+  let url = `movies_api.php?type=${type}`;
+
+  if (type === "search") {
+    url += `&query=${encodeURIComponent(query)}`;
+  }
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  displayMovies(data.results);
+}
 
