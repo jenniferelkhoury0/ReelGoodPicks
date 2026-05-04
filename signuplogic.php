@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "movies_db";
+$dbname = "movie_db";
 $error = ""; // Initialize error variable
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
